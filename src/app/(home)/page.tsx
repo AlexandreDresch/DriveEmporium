@@ -21,30 +21,39 @@ export default async function Home() {
     },
   });
 
-  return (
-    <div className="py-5">
-      <Banner
-        src="/banner-01.png"
-        alt="Up to 25% off this month only."
-      />
+  const offRoadWheels = await prismaClient.product.findMany({
+    where: {
+      category: {
+        slug: "off-road",
+      },
+    },
+  });
 
-      <div className="mt-8 px-5">
+  return (
+    <div className="flex flex-col gap-8 py-5">
+      <Banner src="/banner-01.png" alt="Up to 25% off this month only." />
+
+      <div className="px-5">
         <Categories />
       </div>
 
-      <div className="my-8">
+      <div>
         <SectionTitle>Offers</SectionTitle>
         <ProductHorizontalList products={offers} />
       </div>
 
-      <Banner
-        src="/banner-02.png"
-        alt="Up to 25% off on Vintage Wheels."
-      />
+      <Banner src="/banner-02.png" alt="Up to 25% off on Vintage Wheels." />
 
-      <div className="mt-8">
+      <div>
         <SectionTitle>Vintage</SectionTitle>
         <ProductHorizontalList products={vintageWheels} />
+      </div>
+
+      <Banner src="/banner-03.png" alt="Up to 15% off on Off-Road Wheels." />
+
+      <div>
+        <SectionTitle>Off-Road</SectionTitle>
+        <ProductHorizontalList products={offRoadWheels} />
       </div>
     </div>
   );
