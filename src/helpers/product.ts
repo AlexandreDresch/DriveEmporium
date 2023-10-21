@@ -12,10 +12,10 @@ export function generateProductFinalPrice(product: Product): FinalProduct {
     };
   }
 
-  const totalPrice = +product.basePrice * (product.discountPercent / 100);
+  const totalDiscount = +product.basePrice * (product.discountPercent / 100);
 
   return {
     ... product,
-    totalPrice: totalPrice,
+    totalPrice: +product.basePrice - totalDiscount,
   }
 }
