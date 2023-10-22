@@ -10,10 +10,17 @@ import {
 } from "lucide-react";
 import { Button } from "./button";
 import { Card } from "./card";
-import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "./sheet";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetHeader,
+  SheetTrigger,
+} from "./sheet";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
 import { Separator } from "./separator";
+import Link from "next/link";
 
 export default function Header() {
   const { status, data } = useSession();
@@ -89,16 +96,25 @@ export default function Header() {
               <PercentIcon size={16} /> Offers
             </Button>
 
-            <Button variant="outline" className="w-full justify-start gap-2">
-              <ListOrderedIcon size={16} /> Catalog
-            </Button>
+            <SheetClose asChild>
+              <Link href={"/catalog"}>
+                <Button
+                  variant="outline"
+                  className="w-full justify-start gap-2"
+                >
+                  <ListOrderedIcon size={16} /> Catalog
+                </Button>
+              </Link>
+            </SheetClose>
           </div>
         </SheetContent>
       </Sheet>
 
-      <h1 className="text-justify text-xl font-semibold text-primary">
-        Drive <span className="text-xs text-white">EMPORIUM</span>
-      </h1>
+      <Link href="/">
+        <h1 className="text-justify text-xl font-semibold text-primary">
+          Drive <span className="text-xs text-white">EMPORIUM</span>
+        </h1>
+      </Link>
 
       <Button size="icon" variant="outline">
         <ShoppingCartIcon />
