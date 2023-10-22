@@ -9,6 +9,7 @@ import {
   PieChart,
   Radar,
 } from "lucide-react";
+import Link from "next/link";
 
 interface CategoryItemProps {
   category: Category;
@@ -24,12 +25,14 @@ export default function CategoryItem({ category }: CategoryItemProps) {
     "performance-category": <Gauge size={16} />,
   };
   return (
-    <Badge
-      variant="outline"
-      className="flex items-center justify-center gap-2 rounded-lg py-3"
-    >
+    <Link href={`/category/${category.slug}`}>
+      <Badge
+        variant="outline"
+        className="flex items-center justify-center gap-2 rounded-lg py-3"
+      >
         {categoryIcon[category.slug as keyof typeof categoryIcon]}
-      <span className="text-xs font-bold">{category.name}</span>
-    </Badge>
+        <span className="text-xs font-bold">{category.name}</span>
+      </Badge>
+    </Link>
   );
 }
