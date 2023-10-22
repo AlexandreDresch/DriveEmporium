@@ -8,15 +8,18 @@ interface ProductItemProps {
 }
 export default function ProductItem({ product }: ProductItemProps) {
   return (
-    <div className="flex max-w-[156px] flex-col gap-4">
-      <div className="relative flex h-[170px] w-[156px] items-center justify-center rounded-lg bg-accent">
+    <div className="flex flex-col gap-2">
+      <div className="relative flex h-[170px] w-full items-center justify-center rounded-lg bg-accent">
         <Image
           src={product.imageUrls[0]}
           height={0}
           width={0}
           sizes="100vw"
-          className="h-auto w-auto max-w-[70%] object-contain"
+          className="h-auto max-h-[70%] w-auto max-w-[80%]"
           alt={product.name}
+          style={{
+            objectFit: "contain",
+          }}
         />
 
         {product.discountPercent > 0 && (
