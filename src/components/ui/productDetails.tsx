@@ -4,25 +4,20 @@ import { FinalProduct } from "@/helpers/product";
 import { Badge } from "./badge";
 import {
   ArrowDownIcon,
-  ArrowLeftIcon,
-  ArrowRightIcon,
   ChevronLeft,
   ChevronRight,
   TruckIcon,
 } from "lucide-react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Button } from "./button";
+import { CartContext } from "@/providers/cart";
 
 interface ProductDetailsProps {
-  product: Pick<
-    FinalProduct,
-    "name" | "basePrice" | "description" | "discountPercent" | "totalPrice"
-  >;
+  product: FinalProduct;
 }
-export default function ProductDetails({
-  product: { basePrice, totalPrice, description, discountPercent, name },
-}: ProductDetailsProps) {
+export default function ProductDetails({ product }: ProductDetailsProps) {
   const [quantity, setQuantity] = useState(1);
+  const { addProductToCart } = useContext(CartContext);
 
   function handleQuantityDecrement() {
     setQuantity((prev) => (prev === 1 ? prev : prev - 1));
@@ -32,23 +27,29 @@ export default function ProductDetails({
     setQuantity((prev) => prev + 1);
   }
 
+  function handleAddToCart() {
+    addProductToCart({ ...product, quantity: quantity });
+  }
+
   return (
     <div className="flex flex-col px-5">
-      <h2 className="text-lg">{name}</h2>
+      <h2 className="text-lg">{product.name}</h2>
 
       <div className="flex items-center gap-2">
-        <h1 className="text-xl font-semibold">${totalPrice.toFixed(2)}</h1>
+        <h1 className="text-xl font-semibold">
+          ${product.totalPrice.toFixed(2)}
+        </h1>
 
-        {discountPercent > 0 && (
+        {product.discountPercent > 0 && (
           <Badge className="px-2 py-0.5">
-            <ArrowDownIcon size={14} /> {discountPercent}%
+            <ArrowDownIcon size={14} /> {product.discountPercent}%
           </Badge>
         )}
       </div>
 
-      {discountPercent > 0 && (
+      {product.discountPercent > 0 && (
         <p className="text-sm line-through opacity-75">
-          ${Number(basePrice).toFixed(2)}
+          ${Number(product.basePrice).toFixed(2)}
         </p>
       )}
 
@@ -66,10 +67,15 @@ export default function ProductDetails({
 
       <div className="mt-6 flex flex-col gap-3">
         <h3 className="font-semibold">Description</h3>
-        <p className="text-sm opacity-75">{description}</p>
+        <p className="text-sm opacity-75">{product.description}</p>
       </div>
 
-      <Button className="mt-6 font-semibold uppercase">Add to Cart</Button>
+      <Button
+        className="mt-6 font-semibold uppercase"
+        onClick={handleAddToCart}
+      >
+        Add to Cart
+      </Button>
 
       <div className="my-6 flex items-center justify-between rounded-lg bg-accent px-5 py-2">
         <div className="flex items-center gap-2">
