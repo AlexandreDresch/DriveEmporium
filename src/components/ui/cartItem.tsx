@@ -9,7 +9,7 @@ interface CartItemProps {
 }
 
 export default function CartItem({ product }: CartItemProps) {
-  const { removeProductFromCart } = useContext(CartContext);
+  const { decreaseProductFromCart, increaseProductQuantity } = useContext(CartContext);
 
   return (
     <div className="flex items-center justify-between">
@@ -43,7 +43,7 @@ export default function CartItem({ product }: CartItemProps) {
             <Button
               size="icon"
               variant="outline"
-              onClick={() => removeProductFromCart(product)}
+              onClick={() => decreaseProductFromCart(product)}
               className="h-8 w-8"
             >
               <ChevronLeft size={16} />
@@ -54,7 +54,7 @@ export default function CartItem({ product }: CartItemProps) {
             <Button
               size="icon"
               variant="outline"
-              onClick={() => {}}
+              onClick={() => increaseProductQuantity(product)}
               className="h-8 w-8"
             >
               <ChevronRight size={16} />
