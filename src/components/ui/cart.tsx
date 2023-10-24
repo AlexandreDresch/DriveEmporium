@@ -5,11 +5,13 @@ import { CartContext } from "@/providers/cart";
 import CartItem from "./cartItem";
 import { generateProductFinalPrice } from "@/helpers/product";
 import { Separator } from "./separator";
+import { ScrollArea } from "./scroll-area";
+import { Button } from "./button";
 
 export default function Cart() {
   const { products, total, subTotal, totalDiscount } = useContext(CartContext);
   return (
-    <div className="flex flex-col gap-6 font-Poppins">
+    <div className="flex h-full flex-col gap-6 font-Poppins">
       <Badge
         className="w-fit gap-1 border-[1px] border-primary px-3 py-1 text-lg"
         variant="outline"
@@ -17,19 +19,23 @@ export default function Cart() {
         <ShoppingCartIcon size={16} /> <span>Cart</span>
       </Badge>
 
-      <div className="flex flex-col gap-5">
-        {products.length > 0 ? (
-          products.map((product) => (
-            <CartItem
-              key={product.id}
-              product={generateProductFinalPrice(product) as any}
-            />
-          ))
-        ) : (
-          <p className="text-center font-medium opacity-75">
-            Your cart is empty.
-          </p>
-        )}
+      <div className="flex h-full flex-col gap-5 overflow-hidden">
+        <ScrollArea className="h-full">
+          <div className="flex h-full flex-col gap-2">
+            {products.length > 0 ? (
+              products.map((product) => (
+                <CartItem
+                  key={product.id}
+                  product={generateProductFinalPrice(product) as any}
+                />
+              ))
+            ) : (
+              <p className="text-center font-medium opacity-75">
+                Your cart is empty.
+              </p>
+            )}
+          </div>
+        </ScrollArea>
       </div>
 
       <div className="flex flex-col gap-3">
@@ -60,6 +66,10 @@ export default function Cart() {
           <p>Total</p>
           <p>-${total.toFixed(2)}</p>
         </div>
+
+        <Button className="font-semibold uppercase mt-3">
+          Checkout
+        </Button>
       </div>
     </div>
   );
