@@ -40,18 +40,18 @@ export default function CartProvider({ children }: { children: ReactNode }) {
 
   const subTotal = useMemo(() => {
     return products.reduce((sum, product) => {
-      return sum + Number(product.basePrice);
+      return sum + Number(product.basePrice) * product.quantity;
     }, 0);
   }, [products]);
 
   const total = useMemo(() => {
     return products.reduce(
-      (sum, product) => sum + product.totalPrice,
+      (sum, product) => sum + product.totalPrice * product.quantity,
       0,
     );
   }, [products]);
 
-  const totalDiscount = (total - subTotal) * 1;
+  const totalDiscount = subTotal - total;
 
   function addProductToCart(product: CartProduct) {
     const isProductOnCart = products.some(
