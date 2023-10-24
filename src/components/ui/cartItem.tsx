@@ -1,13 +1,16 @@
-import { CartProduct } from "@/providers/cart";
+import { CartContext, CartProduct } from "@/providers/cart";
 import Image from "next/image";
 import { Button } from "./button";
 import { ChevronLeft, ChevronRight, TrashIcon } from "lucide-react";
+import { useContext } from "react";
 
 interface CartItemProps {
   product: CartProduct;
 }
 
 export default function CartItem({ product }: CartItemProps) {
+  const { removeProductFromCart } = useContext(CartContext);
+
   return (
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-4">
@@ -40,7 +43,7 @@ export default function CartItem({ product }: CartItemProps) {
             <Button
               size="icon"
               variant="outline"
-              onClick={() => {}}
+              onClick={() => removeProductFromCart(product)}
               className="h-8 w-8"
             >
               <ChevronLeft size={16} />
