@@ -38,7 +38,7 @@ export default function CartItem({ product }: CartItemProps) {
             </p>
             {product.discountPercent > 0 && (
               <p className="text-xs line-through opacity-75">
-                ${Number(product.basePrice.toFixed(2))}
+                ${Number(product.basePrice).toFixed(2)}
               </p>
             )}
           </div>
