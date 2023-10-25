@@ -16,7 +16,9 @@ export default function Cart() {
   async function handleFinishPurchase() {
     const checkout = await createCheckout(products);
 
-    const stripe = await loadStripe(`${process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY}`);
+    const stripe = await loadStripe(
+      `${process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY}`,
+    );
 
     stripe?.redirectToCheckout({
       sessionId: checkout.id,
@@ -50,42 +52,44 @@ export default function Cart() {
         </ScrollArea>
       </div>
 
-      <div className="flex flex-col gap-3">
-        <Separator />
+      {products.length > 0 && (
+        <div className="flex flex-col gap-3">
+          <Separator />
 
-        <div className="flex items-center justify-between text-xs">
-          <p>Subtotal</p>
-          <p>${subTotal.toFixed(2)}</p>
+          <div className="flex items-center justify-between text-xs">
+            <p>Subtotal</p>
+            <p>${subTotal.toFixed(2)}</p>
+          </div>
+
+          <Separator />
+
+          <div className="flex items-center justify-between text-xs">
+            <p>Delivery</p>
+            <p>FREE</p>
+          </div>
+
+          <Separator />
+
+          <div className="flex items-center justify-between text-xs">
+            <p>Discount</p>
+            <p>-${totalDiscount.toFixed(2)}</p>
+          </div>
+
+          <Separator />
+
+          <div className="flex items-center justify-between text-sm font-semibold">
+            <p>Total</p>
+            <p>${total.toFixed(2)}</p>
+          </div>
+
+          <Button
+            className="mt-3 font-semibold uppercase"
+            onClick={handleFinishPurchase}
+          >
+            Checkout
+          </Button>
         </div>
-
-        <Separator />
-
-        <div className="flex items-center justify-between text-xs">
-          <p>Delivery</p>
-          <p>FREE</p>
-        </div>
-
-        <Separator />
-
-        <div className="flex items-center justify-between text-xs">
-          <p>Discount</p>
-          <p>-${totalDiscount.toFixed(2)}</p>
-        </div>
-
-        <Separator />
-
-        <div className="flex items-center justify-between text-sm font-semibold">
-          <p>Total</p>
-          <p>${total.toFixed(2)}</p>
-        </div>
-
-        <Button
-          className="mt-3 font-semibold uppercase"
-          onClick={handleFinishPurchase}
-        >
-          Checkout
-        </Button>
-      </div>
+      )}
     </div>
   );
 }
