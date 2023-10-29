@@ -36,9 +36,11 @@ export const CartContext = createContext<ICartContext>({
 });
 
 export default function CartProvider({ children }: { children: ReactNode }) {
-  const cartFromLocalStorage = JSON.parse(
-    localStorage.getItem("@drive-emporium/cart-products") || "[]",
-  );
+  const cartFromLocalStorage = window?.localStorage?.getItem(
+    "@drive-emporium/cart-products",
+  )
+    ? JSON.parse(localStorage.getItem("@drive-emporium/cart-products") || "[]")
+    : [];
   const [products, setProducts] = useState<CartProduct[]>(cartFromLocalStorage);
 
   useEffect(() => {
