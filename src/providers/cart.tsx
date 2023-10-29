@@ -36,12 +36,13 @@ export const CartContext = createContext<ICartContext>({
 });
 
 export default function CartProvider({ children }: { children: ReactNode }) {
-  const cartFromLocalStorage = window?.localStorage?.getItem(
-    "@drive-emporium/cart-products",
-  )
-    ? JSON.parse(localStorage.getItem("@drive-emporium/cart-products") || "[]")
-    : [];
-  const [products, setProducts] = useState<CartProduct[]>(cartFromLocalStorage);
+  const [products, setProducts] = useState<CartProduct[]>([]);
+
+  useEffect(() => {
+    setProducts(
+      JSON.parse(localStorage.getItem("@drive-emporium/cart-products") || "[]"),
+    );
+  }, []);
 
   useEffect(() => {
     localStorage.setItem(
