@@ -6,7 +6,7 @@ async function main() {
   try {
     const modernCategory = await prisma.category.create({
       data: {
-        name: "Modern Style Wheels",
+        name: "Modern",
         slug: "modern-wheels",
         imageUrl: "https://www.americanracing.com/media/catalog/product/9/5/957e4c18ccfa8df5726dd560ccb41a6e062dc47e3b0761b9c497eb136fee419e.jpeg?quality=80&fit=bounds&height=900&width=900",
       },
@@ -89,7 +89,7 @@ async function main() {
 
     const vintageCategory = await prisma.category.create({
       data: {
-        name: "Vintage Style Wheels",
+        name: "Vintage",
         slug: "vintage-wheels",
         imageUrl: "https://www.americanracing.com/media/catalog/product/1/4/14df97070c9bc4b4cb1f0a33d2d59e39ba7ee93ff8368a5cc4646cf52ac440b9.jpeg?quality=80&fit=bounds&height=900&width=900",
       },
@@ -110,8 +110,8 @@ async function main() {
         discountPercent: 10, // 10% discount
       },
       {
-        name: "CLASSIC TORQ THRUST II CUSTOM",
-        slug: "classic-torq-thust-ii-custom",
+        name: "CLASSIC TORQ THRUST II",
+        slug: "classic-torq-thust-ii",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id malesuada elit, eget vulputate justo. Sed sollicitudin velit dolor, ut gravida odio iaculis a.\nNulla risus justo, tempor eu felis eu, efficitur pulvinar risus. Sed viverra, nisi id egestas convallis, massa lorem convallis magna, vel convallis mi turpis nec ante. Maecenas posuere lacus id gravida dignissim. Morbi sit amet rutrum ex. Duis sit amet sem orci. Morbi non nisl sed mauris mattis ullamcorper quis eget metus.\nUt pellentesque ornare erat, vitae blandit ex pulvinar sit amet. Ut pellentesque lorem at eros vestibulum lobortis. Proin bibendum est facilisis nulla tristique vestibulum. Etiam placerat tortor sit amet lacinia volutpat. Curabitur lectus turpis, faucibus vitae tortor in, lacinia tristique neque.",
         imageUrls: [
@@ -179,7 +179,7 @@ async function main() {
 
     const offRoadCategory = await prisma.category.create({
       data: {
-        name: "Off-Road Category",
+        name: "Off-Road",
         slug: "off-road",
         imageUrl: "https://cdn.shortpixel.ai/spai/q_lossy+w_543+h_543+to_auto+ret_img/www.gearoffroad.com/wp-content/uploads/2021/10/760BZ_1.png",
       },
@@ -278,7 +278,7 @@ async function main() {
 
     const multiPieceCategory = await prisma.category.create({
       data: {
-        name: "Multi Piece Category",
+        name: "Multi Piece",
         slug: "multi-piece-category",
         imageUrl: "https://www.offfset.com/cdn/shop/products/RSE_Polished_A1_1000_700x.png?v=1656669421",
       },
@@ -383,7 +383,7 @@ async function main() {
 
     const directionalCategory = await prisma.category.create({
       data: {
-        name: "Directional Category",
+        name: "Directional",
         slug: "directional-category",
         imageUrl: "https://www.hpdwheels.com/cdn/shop/files/TILTED_cc0c8690-a732-43ee-bf82-187b2ef8fdd8_1024x1024.png?v=1688128784",
       },
@@ -484,7 +484,7 @@ async function main() {
 
     const performanceCategory = await prisma.category.create({
       data: {
-        name: "Performance Category",
+        name: "Performance",
         slug: "performance-category",
         imageUrl: "https://fsw-store.s3.sa-east-1.amazonaws.com/speakers.png",
       },
