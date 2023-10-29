@@ -19,15 +19,42 @@ model Category {
 }
 
 model Product {
-  id              String   @id @default(uuid())
+  id              String         @id @default(uuid())
   name            String
   slug            String
   description     String
-  basePrice       Decimal  @db.Decimal(8, 2)
+  basePrice       Decimal        @db.Decimal(8, 2)
   imageUrls       String[]
-  category        Category @relation(fields: [categoryId], references: [id])
+  category        Category       @relation(fields: [categoryId], references: [id])
   categoryId      String
-  discountPercent Int      @default(0)
+  discountPercent Int            @default(0)
+  OrderProduct    OrderProduct[]
+}
+
+model Order {
+  id            String         @id @default(uuid())
+  userId        String
+  user          User           @relation(fields: [userId], references: [id])
+  orderProducts OrderProduct[]
+  updatedAt     DateTime       @default(now()) @updatedAt
+  createdAt     DateTime       @default(now())
+  status        OrderStatus    @default(WAITING_FOR_PAYMENT)
+}
+
+enum OrderStatus {
+  WAITING_FOR_PAYMENT
+  PAYMENT_RECEIVED
+}
+
+model OrderProduct {
+  id              String  @id @default(uuid())
+  productId       String
+  product         Product @relation(fields: [productId], references: [id])
+  basePrice       Decimal @db.Decimal(8, 2)
+  discountPercent Int     @default(0)
+  order           Order   @relation(fields: [orderId], references: [id])
+  orderId         String
+  quantity        Int
 }
 
 model Account {
@@ -65,6 +92,7 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+  Order         Order[]
 }
 
 model VerificationToken {
