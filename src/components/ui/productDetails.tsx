@@ -11,6 +11,7 @@ import {
 import { useContext, useState } from "react";
 import { Button } from "./button";
 import { CartContext } from "@/providers/cart";
+import { toast } from "react-toastify";
 
 interface ProductDetailsProps {
   product: FinalProduct;
@@ -29,6 +30,13 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
 
   function handleAddToCart() {
     addProductToCart({ ...product, quantity: quantity });
+
+    toast.success("Product added to cart successfully!", {
+      position: "top-right",
+      autoClose: 1500,
+      theme: "dark",
+      pauseOnHover: false,
+    });
   }
 
   return (
