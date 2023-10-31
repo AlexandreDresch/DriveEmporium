@@ -40,7 +40,7 @@ export default function OrderItem({ order }: OrderItemProps) {
         <AccordionItem value={order.id}>
           <AccordionTrigger>
             <div className="flex flex-col gap-1 text-left">
-              <p>Order with {order.orderProducts.length} item(s)</p>
+              <p className="font-semibold">Order with {order.orderProducts.length} item(s)</p>
               <span className="text-sm opacity-75">
                 Placed on {format(order.createdAt, "MM/dd/yy 'at' HH:mm")}
               </span>
