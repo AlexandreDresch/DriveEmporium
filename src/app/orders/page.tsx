@@ -8,15 +8,19 @@ import { getServerSession } from "next-auth";
 export const dynamic = "force-dynamic";
 
 export default async function Orders() {
-  const user = getServerSession(authOptions);
+  const session = await getServerSession(authOptions);
 
-  if (!user) {
-    return <p>Access Denied</p>;
+  if (!session || !session.user) {
+    return (
+      <div className="flex h-full flex-col items-center justify-center gap-2 p-5">
+        <h2 className="font-semibold">Access Denied!</h2>
+        <p className="text-sm opacity-75">Log in to view your orders</p>
+      </div>
+    );
   }
-
   const orders = await prismaClient.order.findMany({
     where: {
-      userId: (user as any).id,
+      userId: session.user.id,
     },
     include: {
       orderProducts: { include: { product: true } },
@@ -26,7 +30,7 @@ export default async function Orders() {
   return (
     <div className="p-5">
       <Badge
-        className="mb-5 w-fit gap-1 border-[1px] border-primary px-3 py-1 text-base uppercase"
+        className="mb-5 w-fit gap-1 border-[1px] border-primary px-3 py-1 text-center uppercase"
         variant="outline"
       >
         <PackageSearchIcon size={16} /> <span>Orders</span>
