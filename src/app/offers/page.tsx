@@ -14,9 +14,8 @@ export default async function Offers() {
   });
   return (
     <div className="flex flex-col gap-5 p-5">
-      <Badge
-        className="w-fit gap-1 border-[2px] border-primary px-3 py-1 text-center uppercase"
-        variant="outline"
+      <Badge        
+        variant="heading"
       >
         <PercentIcon size={16} />
         <span>Offers</span>

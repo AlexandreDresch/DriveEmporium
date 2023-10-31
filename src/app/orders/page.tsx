@@ -29,10 +29,7 @@ export default async function Orders() {
 
   return (
     <div className="p-5">
-      <Badge
-        className="mb-5 w-fit gap-1 border-[1px] border-primary px-3 py-1 text-center uppercase"
-        variant="outline"
-      >
+      <Badge className="mb-5" variant="heading">
         <PackageSearchIcon size={16} /> <span>Orders</span>
       </Badge>
 

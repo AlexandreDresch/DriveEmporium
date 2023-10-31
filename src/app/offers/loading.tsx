@@ -5,9 +5,8 @@ import { PercentIcon } from "lucide-react";
 export default function OffersLoading() {
   return (
     <div className="flex flex-col gap-5 p-5 lg:container lg:mx-auto">
-      <Badge
-        className="w-fit gap-1 border-[2px] border-primary px-3 py-1 text-center uppercase"
-        variant="outline"
+      <Badge        
+        variant="heading"
       >
         <PercentIcon size={16} />
         <span>Offers</span>

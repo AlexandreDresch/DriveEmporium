@@ -5,9 +5,8 @@ import { Grid2X2 } from "lucide-react";
 export default function CatalogLoading() {
   return (
     <div className="flex flex-col gap-8 p-5 lg:container lg:mx-auto">
-      <Badge
-        className="w-fit gap-1 border-2 border-primary px-3 py-1 text-center uppercase"
-        variant="outline"
+      <Badge        
+        variant="heading"
       >
         <Grid2X2 size={16} /> <span>Catalog</span>
       </Badge>
