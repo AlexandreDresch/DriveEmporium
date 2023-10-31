@@ -5,6 +5,7 @@ import {
   ListOrderedIcon,
   LogInIcon,
   MenuIcon,
+  PackageSearchIcon,
   PercentIcon,
   ShoppingCartIcon,
 } from "lucide-react";
@@ -102,9 +103,12 @@ export default function Header() {
 
             <SheetClose asChild>
               <Link href="/offers">
-              <Button variant="outline" className="w-full justify-start gap-2">
-              <PercentIcon size={16} /> Offers
-            </Button>
+                <Button
+                  variant="outline"
+                  className="w-full justify-start gap-2"
+                >
+                  <PercentIcon size={16} /> Offers
+                </Button>
               </Link>
             </SheetClose>
 
@@ -115,6 +119,17 @@ export default function Header() {
                   className="w-full justify-start gap-2"
                 >
                   <ListOrderedIcon size={16} /> Catalog
+                </Button>
+              </Link>
+            </SheetClose>
+
+            <SheetClose asChild>
+              <Link href="/orders">
+                <Button
+                  variant="outline"
+                  className="w-full justify-start gap-2"
+                >
+                  <PackageSearchIcon size={16} /> Orders
                 </Button>
               </Link>
             </SheetClose>
