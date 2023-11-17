@@ -25,7 +25,7 @@ export default function CategoryItem({ category }: CategoryItemProps) {
     "performance-category": <Gauge size={16} />,
   };
   return (
-    <Link href={`/category/${category.slug}`}>
+    <Link href={`/category/${category.slug}`} className="md:w-full">
       <Badge
         variant="outline"
         className="flex items-center justify-center gap-2 rounded-lg py-3"
