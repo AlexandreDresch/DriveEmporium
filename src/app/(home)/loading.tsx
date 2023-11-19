@@ -7,7 +7,7 @@ export default function HomeLoading() {
   return (
     <div className="flex flex-col gap-8 py-8">
       <div className="flex lg:hidden">
-        <Banner src="/banner-01.png" alt="Up to 25% off this month only." />
+      <Banner variant="base" percentage={25} text="this month only"/>
       </div>
 
       <div className="flex flex-col gap-8 lg:container lg:mx-auto">
@@ -30,10 +30,7 @@ export default function HomeLoading() {
 
         <div className="lg:flex lg:justify-center lg:gap-10 lg:px-0">
           <div className="flex">
-            <Banner
-              src="/banner-02.png"
-              alt="Up to 25% off on Vintage Wheels."
-            />
+          <Banner variant="base" percentage={25} text="Vintage wheels."/>
           </div>
         </div>
 
@@ -51,10 +48,7 @@ export default function HomeLoading() {
         </div>
 
         <div className="flex lg:hidden">
-          <Banner
-            src="/banner-03.png"
-            alt="Up to 15% off on Off-Road Wheels."
-          />
+        <Banner variant="base" percentage={15} text="Off-Road Wheels."/>
         </div>
 
         <div>
