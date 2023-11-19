@@ -31,26 +31,20 @@ export default async function Home() {
 
   return (
     <div className="flex flex-col gap-8 py-5">
-      <Banner src="/banner-01.png" alt="Up to 25% off this month only." />
-
+      <Banner variant="base" percentage={25} text="this month only"/>
       <div className="px-5">
         <Categories />
       </div>
-
       <div>
         <SectionTitle>Offers</SectionTitle>
         <ProductHorizontalList products={offers} />
       </div>
-
-      <Banner src="/banner-02.png" alt="Up to 25% off on Vintage Wheels." />
-
+      <Banner variant="detailed" percentage={25} text="Vintage wheels" image={vintageWheels[0].imageUrls[0]} textOrientation="left"/>
       <div>
         <SectionTitle>Vintage</SectionTitle>
         <ProductHorizontalList products={vintageWheels} />
       </div>
-
-      <Banner src="/banner-03.png" alt="Up to 15% off on Off-Road Wheels." />
-
+      <Banner variant="detailed" percentage={15} text="Off-Road wheels" image={offRoadWheels[0].imageUrls[0]} textOrientation="right"/>
       <div>
         <SectionTitle>Off-Road</SectionTitle>
         <ProductHorizontalList products={offRoadWheels} />
