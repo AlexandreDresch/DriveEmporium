@@ -31,7 +31,12 @@ export default async function Home() {
 
   return (
     <div className="flex flex-col gap-8 py-5">
-      <Banner variant="base" percentage={25} text="this month only"/>
+      <div className="flex w-full md:hidden">
+        <Banner variant="base" percentage={25} text="this month only" />
+      </div>
+      <div className="hidden md:flex">
+        <Banner variant="desktop" percentage={25} text="this month only" />
+      </div>
       <div className="px-5">
         <Categories />
       </div>
@@ -39,12 +44,45 @@ export default async function Home() {
         <SectionTitle>Offers</SectionTitle>
         <ProductHorizontalList products={offers} />
       </div>
-      <Banner variant="detailed" percentage={25} text="Vintage wheels" image={vintageWheels[0].imageUrls[0]} textOrientation="left"/>
+      <div className="flex w-full md:hidden">
+        <Banner
+          variant="detailed"
+          percentage={25}
+          text="Vintage wheels"
+          image={vintageWheels[0].imageUrls[0]}
+          textOrientation="left"
+        />
+      </div>
+
+      <div className="hidden w-full md:flex">
+        <Banner
+          variant="detailed"
+          percentage={25}
+          text="Vintage wheels"
+          image={vintageWheels[0].imageUrls[0]}
+          textOrientation="left"
+        />
+        <Banner
+          variant="detailed"
+          percentage={15}
+          text="Off-Road wheels"
+          image={offRoadWheels[0].imageUrls[0]}
+          textOrientation="right"
+        />
+      </div>
       <div>
         <SectionTitle>Vintage</SectionTitle>
         <ProductHorizontalList products={vintageWheels} />
       </div>
-      <Banner variant="detailed" percentage={15} text="Off-Road wheels" image={offRoadWheels[0].imageUrls[0]} textOrientation="right"/>
+      <div className="flex w-full md:hidden">
+        <Banner
+          variant="detailed"
+          percentage={15}
+          text="Off-Road wheels"
+          image={offRoadWheels[0].imageUrls[0]}
+          textOrientation="right"
+        />
+      </div>
       <div>
         <SectionTitle>Off-Road</SectionTitle>
         <ProductHorizontalList products={offRoadWheels} />
