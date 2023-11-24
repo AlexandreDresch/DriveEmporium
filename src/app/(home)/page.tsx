@@ -31,20 +31,20 @@ export default async function Home() {
 
   return (
     <div className="flex flex-col gap-8 py-5">
-      <div className="flex w-full md:hidden">
+      <div className="flex w-full md:hidden px-5 lg:px-24">
         <Banner variant="base" percentage={25} text="this month only" />
       </div>
       <div className="hidden md:flex">
         <Banner variant="desktop" percentage={25} text="this month only" />
       </div>
-      <div className="px-5">
+      <div className="px-5 lg:px-24">
         <Categories />
       </div>
-      <div>
+      <div className="px-5 lg:px-24">
         <SectionTitle>Offers</SectionTitle>
         <ProductHorizontalList products={offers} />
       </div>
-      <div className="flex w-full md:hidden">
+      <div className="flex w-full md:hidden px-5 lg:px-24">
         <Banner
           variant="detailed"
           percentage={25}
@@ -54,7 +54,7 @@ export default async function Home() {
         />
       </div>
 
-      <div className="hidden w-full md:flex">
+      <div className="hidden w-full md:flex px-5 lg:px-24 gap-5">
         <Banner
           variant="detailed"
           percentage={25}
@@ -70,11 +70,11 @@ export default async function Home() {
           textOrientation="right"
         />
       </div>
-      <div>
+      <div className="px-5 lg:px-24">
         <SectionTitle>Vintage</SectionTitle>
         <ProductHorizontalList products={vintageWheels} />
       </div>
-      <div className="flex w-full md:hidden">
+      <div className="flex w-full md:hidden px-5 lg:px-24">
         <Banner
           variant="detailed"
           percentage={15}
@@ -83,7 +83,7 @@ export default async function Home() {
           textOrientation="right"
         />
       </div>
-      <div className="hidden w-full md:flex">
+      <div className="hidden w-full md:flex px-5 lg:px-24">
         <Banner
           variant="base"
           percentage={25}
@@ -91,7 +91,7 @@ export default async function Home() {
           image={offers[2].imageUrls[0]}
         />
       </div>
-      <div>
+      <div className="px-5 lg:px-24">
         <SectionTitle>Off-Road</SectionTitle>
         <ProductHorizontalList products={offRoadWheels} />
       </div>
