@@ -285,6 +285,17 @@ export default function Header() {
                     <LogInIcon size={16} /> Sign Out
                   </Button>
                 )}
+
+                <SheetClose asChild>
+                  <Link href="/orders">
+                    <Button
+                      variant="outline"
+                      className="w-full justify-start gap-2"
+                    >
+                      <PackageSearchIcon size={16} /> Orders
+                    </Button>
+                  </Link>
+                </SheetClose>
               </div>
             </SheetContent>
           </Sheet>
