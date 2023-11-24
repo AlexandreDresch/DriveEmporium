@@ -48,7 +48,7 @@ export default async function Home() {
         <Banner
           variant="detailed"
           percentage={25}
-          text="Vintage wheels"
+          text="on Vintage wheels"
           image={vintageWheels[0].imageUrls[0]}
           textOrientation="left"
         />
@@ -58,14 +58,14 @@ export default async function Home() {
         <Banner
           variant="detailed"
           percentage={25}
-          text="Vintage wheels"
+          text="on Vintage wheels"
           image={vintageWheels[0].imageUrls[0]}
           textOrientation="left"
         />
         <Banner
           variant="detailed"
           percentage={15}
-          text="Off-Road wheels"
+          text="on Off-Road wheels"
           image={offRoadWheels[0].imageUrls[0]}
           textOrientation="right"
         />
@@ -78,9 +78,17 @@ export default async function Home() {
         <Banner
           variant="detailed"
           percentage={15}
-          text="Off-Road wheels"
+          text="on Off-Road wheels"
           image={offRoadWheels[0].imageUrls[0]}
           textOrientation="right"
+        />
+      </div>
+      <div className="hidden w-full md:flex">
+        <Banner
+          variant="base"
+          percentage={25}
+          text="this month only"
+          image={offers[2].imageUrls[0]}
         />
       </div>
       <div>
