@@ -48,7 +48,7 @@ export default function Banner({
 
   return variant === "desktop" ? (
     <div
-      className="relative -z-10 mx-5 flex h-[430px] w-full items-center justify-around overflow-hidden rounded-md
+      className="relative -z-10 flex h-[430px] w-full items-center justify-around overflow-hidden
     bg-[url('https://images.unsplash.com/photo-1554971628-2b8e8b43891c?q=80&w=1944&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')]
     bg-cover
     bg-center
@@ -95,7 +95,7 @@ export default function Banner({
     </div>
   ) : (
     <div
-      className={`mx-5 flex w-full items-center justify-around rounded-md bg-gradient-to-r ${gradientClass} p-5`}
+      className={`flex w-full items-center justify-around rounded-md bg-gradient-to-r ${gradientClass} p-5 lg:p-10`}
     >
       <div className="text-white">
         <div className="flex justify-between">
