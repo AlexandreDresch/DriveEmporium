@@ -4,20 +4,19 @@ import { PercentIcon } from "lucide-react";
 
 export default function OffersLoading() {
   return (
-    <div className="flex flex-col gap-5 p-5 lg:container lg:mx-auto">
-      <Badge        
-        variant="heading"
-      >
+    <div className="flex flex-col gap-8 p-5 lg:px-24">
+      <Badge variant="heading">
         <PercentIcon size={16} />
         <span>Offers</span>
       </Badge>
 
-      <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-6 lg:gap-10">
-        {[...Array(6)].map((x, i) => (
-          <Skeleton
-            className="flex h-[200px] w-full rounded-tl-lg rounded-tr-lg bg-accent"
-            key={i}
-          />
+      <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6">
+        {[...Array(6)].map((_, i) => (
+          <div key={i} className="flex flex-col gap-2">
+            <Skeleton className="flex h-[170px] w-full items-center justify-center rounded-lg bg-accent lg:h-[300px]" />
+            <Skeleton className="h-4 w-1/2 rounded-md bg-accent" />
+            <Skeleton className="h-4 w-1/3 rounded-md bg-accent" />
+          </div>
         ))}
       </div>
     </div>
