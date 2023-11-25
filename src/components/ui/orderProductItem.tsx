@@ -22,7 +22,7 @@ export default function OrderProductItem({ orderProduct }: OrderProductProps) {
       </div>
 
       <div className="flex w-full flex-col gap-1">
-        <div className="flex justify-center rounded-md bg-accent px-2 py-1">
+        <div className="flex justify-center rounded-md bg-accent px-2 py-1 md:w-1/3">
           <p className="text-xs">
             Sold and shipped by{" "}
             <span className="font-semibold">Drive Emporium</span>
