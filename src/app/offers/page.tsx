@@ -13,18 +13,17 @@ export default async function Offers() {
     },
   });
   return (
-    <div className="flex flex-col gap-5 p-5">
-      <Badge        
-        variant="heading"
-      >
+    <div className="flex flex-col gap-5 p-5 lg:px-24">
+      <Badge variant="heading">
         <PercentIcon size={16} />
         <span>Offers</span>
       </Badge>
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6">
         {products.map((product) => (
-          <div className="w-[170px] min-w-[170px]" key={product.id}>
-            <ProductItem product={generateProductFinalPrice(product)} />
-          </div>
+          <ProductItem
+            product={generateProductFinalPrice(product)}
+            key={product.id}
+          />
         ))}
       </div>
     </div>
