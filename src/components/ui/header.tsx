@@ -63,7 +63,7 @@ export default function Header() {
   }
 
   return (
-    <Card className="flex items-center justify-between p-5 md:px-16 lg:px-24">
+    <Card className="flex items-center justify-between p-5 lg:px-24">
       <div className="md:hidden">
         <Sheet>
           <SheetTrigger>
