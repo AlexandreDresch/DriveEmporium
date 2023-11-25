@@ -10,7 +10,7 @@ export default function CategoryCard({ category }: CategoryCardProps) {
   return (
     <Link href={`/category/${category.slug}`}>
       <div className="flex flex-col">
-        <div className="bg-category-card-gradient flex h-[150px] w-full items-center justify-center rounded-tl-lg rounded-tr-lg">
+        <div className="flex h-[150px] w-full items-center justify-center rounded-tl-lg rounded-tr-lg bg-category-card-gradient lg:h-[200px]">
           <Image
             src={category.imageUrl}
             alt={category.name}
