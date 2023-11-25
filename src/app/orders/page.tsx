@@ -28,7 +28,7 @@ export default async function Orders() {
   });
 
   return (
-    <div className="p-5">
+    <div className="p-5 lg:px-24">
       <Badge className="mb-5" variant="heading">
         <PackageSearchIcon size={16} /> <span>Orders</span>
       </Badge>
