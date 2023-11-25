@@ -12,9 +12,9 @@ export default function CatalogLoading() {
       </Badge>
 
       <div className="grid grid-cols-2 gap-8 lg:grid-cols-3">
-        {[...Array(6)].map((x, i) => (
+        {[...Array(6)].map((_, i) => (
           <Skeleton
-            className="flex h-[200px] w-full rounded-tl-lg rounded-tr-lg bg-accent"
+            className="flex h-[185px] lg:h-[235px] w-full rounded-tl-lg rounded-tr-lg bg-accent"
             key={i}
           />
         ))}
