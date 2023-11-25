@@ -35,7 +35,7 @@ export default async function CategoryProducts({ params }: any) {
   }
 
   return (
-    <div className="flex flex-col gap-8 p-5">
+    <div className="flex flex-col gap-8 p-5 lg:px-24">
       <Badge
         className="w-fit gap-1 border-2 border-primary px-3 py-1 text-center uppercase"
         variant="outline"
@@ -44,7 +44,7 @@ export default async function CategoryProducts({ params }: any) {
         <span>{category?.name} Wheels</span>
       </Badge>
 
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6 gap-8">
         {category.products.map((product) => (
           <ProductItem
             key={product.id}
