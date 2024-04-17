@@ -18,6 +18,7 @@ export default async function Orders() {
       </div>
     );
   }
+
   const orders = await prismaClient.order.findMany({
     where: {
       userId: session.user.id,
@@ -26,6 +27,15 @@ export default async function Orders() {
       orderProducts: { include: { product: true } },
     },
   });
+
+  if (orders.length === 0) {
+    return (
+      <div className="flex h-full flex-col items-center justify-center gap-2 p-5">
+        <h2 className="font-semibold">Nothing here :c</h2>
+        <p className="text-sm opacity-75">You haven&apos;t purchased anything from us yet</p>
+      </div>
+    );
+  }
 
   return (
     <div className="p-5 lg:px-24">
