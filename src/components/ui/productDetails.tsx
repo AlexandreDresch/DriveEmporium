@@ -40,37 +40,49 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
   }
 
   return (
-    <div className="flex flex-col px-5">
-      <h2 className="text-lg">{product.name}</h2>
+    <div className="flex flex-col px-5 md:w-1/2">
+      <div className="flex flex-col md:flex-row md:justify-between">
+        <div className="flex flex-col">
+          <h2 className="text-lg">{product.name}</h2>
 
-      <div className="flex items-center gap-2">
-        <h1 className="text-xl font-semibold">
-          ${product.totalPrice.toFixed(2)}
-        </h1>
+          <div className="flex items-center gap-2">
+            <h1 className="text-xl font-semibold">
+              ${product.totalPrice.toFixed(2)}
+            </h1>
 
-        {product.discountPercent > 0 && (
-          <Badge className="px-2 py-0.5">
-            <ArrowDownIcon size={14} /> {product.discountPercent}%
-          </Badge>
-        )}
-      </div>
+            {product.discountPercent > 0 && (
+              <Badge className="px-2 py-0.5">
+                <ArrowDownIcon size={14} /> {product.discountPercent}%
+              </Badge>
+            )}
+          </div>
 
-      {product.discountPercent > 0 && (
-        <p className="text-sm line-through opacity-75">
-          ${Number(product.basePrice).toFixed(2)}
-        </p>
-      )}
+          {product.discountPercent > 0 && (
+            <p className="text-sm line-through opacity-75">
+              ${Number(product.basePrice).toFixed(2)}
+            </p>
+          )}
+        </div>
 
-      <div className="mt-4 flex items-center gap-2">
-        <Button size="icon" variant="outline" onClick={handleQuantityDecrement}>
-          <ChevronLeft size={16} />
-        </Button>
+        <div className="mt-4 flex items-center gap-2">
+          <Button
+            size="icon"
+            variant="outline"
+            onClick={handleQuantityDecrement}
+          >
+            <ChevronLeft size={16} />
+          </Button>
 
-        <span>{quantity}</span>
+          <span>{quantity}</span>
 
-        <Button size="icon" variant="outline" onClick={handleQuantityIncrement}>
-          <ChevronRight size={16} />
-        </Button>
+          <Button
+            size="icon"
+            variant="outline"
+            onClick={handleQuantityIncrement}
+          >
+            <ChevronRight size={16} />
+          </Button>
+        </div>
       </div>
 
       <div className="mt-6 flex flex-col gap-3">

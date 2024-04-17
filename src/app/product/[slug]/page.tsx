@@ -34,11 +34,12 @@ export default async function Product({ params: { slug } }: ProductPageProps) {
   if (!product) return null;
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 lg:px-24">
+      <div className="flex flex-col gap-6 md:flex-row md:mt-6">
       <ProductImages imageUrls={product.imageUrls} name={product.name} />
       <ProductDetails product={generateProductFinalPrice(product)} />
-
-      <div className="mb-6">
+      </div>
+      <div className="mb-6 px-5 lg:px-0">
         <SectionTitle>More in {product.category.name}</SectionTitle>
         <ProductHorizontalList products={product.category.products} />
       </div>

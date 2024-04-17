@@ -15,7 +15,7 @@ export default function ProductImages({ imageUrls, name }: ProductImagesProps) {
     setSelectedImage(image);
   }
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col md:w-1/2">
       <div className="flex h-[380px] w-full items-center justify-center bg-accent">
         <Image
           src={selectedImage}
@@ -27,7 +27,7 @@ export default function ProductImages({ imageUrls, name }: ProductImagesProps) {
         />
       </div>
 
-      <div className="mt-8 grid grid-cols-4 gap-1 px-5">
+      <div className="mt-8 grid grid-cols-4 gap-1 px-5 md:px-0">
         {imageUrls.map((image) => (
           <button
             key={image}
