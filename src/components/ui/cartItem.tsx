@@ -30,9 +30,7 @@ export default function CartItem({ product }: CartItemProps) {
         </div>
 
         <div className="flex flex-col">
-          <p className="max-w-[140px] line-clamp-1 text-xs ">
-            {product.name}
-          </p>
+          <p className="line-clamp-1 max-w-[140px] text-xs">{product.name}</p>
 
           <div className="flex items-center gap-2">
             <p className="text-sm font-semibold">
